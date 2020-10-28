@@ -7,28 +7,6 @@ const ayarlar = require('./ayarlar.json');
 const app = express();
 
 
-//READY.JS
-
-const Discord = require('discord.js');
-const client = new Discord.Client();
-client.on('ready', async () => {
-   client.appInfo = await client.fetchApplication();
-  setInterval( async () => {
-    client.appInfo = await client.fetchApplication();
-  }, 600);
-  
- client.user.setActivity(`discord.gg/codework`, { type:"WATHING" })
-  
-  console.log("CodeWork Akıyor!!")
-});
-
-const log = message => {
-  console.log(` ${message}`);
-};
-require('./util/eventLoader.js')(client);
-
-//READY.JS SON
-
 //KOMUT ALGILAYICI
 
 client.commands = new Discord.Collection();
