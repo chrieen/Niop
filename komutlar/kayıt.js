@@ -18,10 +18,10 @@ exports.run = async (client, message, args) => {
   if (!yas) return message.channel.send(`Yaşını girmelisin.`)
 
   user.setNickname(`[${isim}] [${yas}]`)
-  setTimeout(function(){user.addRole(db.fetch(`kayıt_${message.guild.id}`))},3000)
-  setTimeout(function(){user.removeRole(db.fetch(`kayıtalınacak_${message.guild.id}`))},4000)
+  setTimeout(function(){user.roles.add(db.fetch(`kayıt_${message.guild.id}`))},3000)
+  setTimeout(function(){user.roles.remove(db.fetch(`kayıtalınacak_${message.guild.id}`))},4000)
   message.channel.send(`${message.author} Sunucuya Başarıyla Kayıt oldun !`)
-  message.guild.channels.get(db.fetch(`kayıtlog_${message.guild.id}`)).send(`<a:kayit:707928076926976061> ${message.author} Adlı kullanıcı Başarılı Şekilde Kayıt Oldu ! <a:oldu:707928398902853713> `);
+  message.guild.channels.cache.get(db.fetch(`kayıtlog_${message.guild.id}`)).send(`<a:kayit:707928076926976061> ${message.author} Adlı kullanıcı Başarılı Şekilde Kayıt Oldu ! <a:oldu:707928398902853713> `);
 
 };
 

@@ -6,18 +6,6 @@ const express = require('express');
 const ayarlar = require('./ayarlar.json');
 const app = express();
 
-//UPTİME İÇİN
-
-app.get("/", (request, response) => {
-  console.log("Hergün Yeni Bir Pinge Selamkee!!");
-  response.sendStatus(200);
-});
-app.listen(8000);
-setInterval(() => {
-  http.get(`https://cw-deneme-v12.glitch.me/`); //ALTYAPI ADRESİNİ GİRİN.
-}, 120000)
-
-//UPTİME İÇİN
 
 //READY.JS
 
@@ -128,3 +116,15 @@ client.elevation = message => {
     return permlvl;
 };
 client.login(process.env.TOKEN)
+
+
+//-----------------------KOMUTLAR-----------------------\\
+
+//KULLANICI KAYIT MESAJI\\
+
+client.on("guildMemberAdd", async member => {
+  let hgmesajı = db.fetch(`kgirismesajı_${member.guild.id}`)
+  client.channels.cache.get(hgmesajı).send(`Hoşgeldin ${member} Kayıt Olmak İçin !kayıt İsim Yaş`);
+});
+
+//KULLANICI KAYIT MESAJI SON\\
