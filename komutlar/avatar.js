@@ -6,8 +6,8 @@ if (message.mentions.users.first())  {user = message.mentions.users.first();}
  else {user = message.author;}
 return message.channel.send(new Discord.MessageEmbed()
 .setDescription(`**${user.tag}** Avatarın;`)
-.setImage(user.avatarURL()))
-  
+.setImage(user.displayAvatarURL()))
+                            
 };
 exports.conf = {
     enabled: false,

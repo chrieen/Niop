@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
   if(kayıtkanalı == null) return message.channel.send('');
   if (message.channel.id !== kayıtkanalı) return message.channel.send(`Sadece Kayıt Kanalından Kayıt Edebilirsiniz!`);
   
-  if(!message.member.roles.has(db.fetch(`yetkilirolk_${message.guild.id}`))) {
+  if(!message.member.hasPermission(db.fetch(`yetkilirolk_${message.guild.id}`))) {
     return message.channel.send("Bu Komutu Kullanabilmek İçin Gerekli Yetkiye Sahip Değilsin!");
   } else {
     let member = message.mentions.users.first() || client.users.get(args.join(' '))

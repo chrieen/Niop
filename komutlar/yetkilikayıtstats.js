@@ -7,8 +7,8 @@ let kişi = message.mentions.users.first()
 if(!args[0]) {
     const erkekbilgi = await db.fetch(`erkekistatistik${message.author.id}.${message.guild.id}`)
     const kızbilgi = await db.fetch(`kızistatistik${message.author.id}.${message.guild.id}`)
-    const codework1 = new Discord.RichEmbed()
-    .setThumbnail(message.author.avatarURL)
+    const codework1 = new Discord.MessageEmbed()
+    .setThumbnail(message.author.avatarURL())
     .setTimestamp()
     .setFooter(`${message.author.tag} Tarafından İstendi.`)
     .setDescription(`**${message.author} İsimli Yetkilinin Toplam Kayıtı**
@@ -20,9 +20,9 @@ if(!args[0]) {
 if(kişi) {
     const erkekbilgi = await db.fetch(`erkekistatistik${kişi.id}.${message.guild.id}`)
     const kızbilgi = await db.fetch(`kızistatistik${kişi.id}.${message.guild.id}`)
-    const codework = new Discord.RichEmbed()
-    .setAuthor(kişi.username, kişi.avatarURL)
-    .setThumbnail(message.mentions.users.first().avatarURL)
+    const codework = new Discord.MessageEmbed()
+    .setAuthor(kişi.username, kişi.avatarURL())
+    .setThumbnail(message.mentions.users.first().displayAvatarURL())
     .setTimestamp()
     .setFooter(`${message.author.tag} Tarafından İstendi.`)
     .setDescription(`**Yetkilinin Bilgileri**

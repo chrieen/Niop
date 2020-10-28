@@ -11,24 +11,21 @@ const app = express();
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
+client.on('ready', async () => {
+   client.appInfo = await client.fetchApplication();
+  setInterval( async () => {
+    client.appInfo = await client.fetchApplication();
+  }, 600);
+  
+ client.user.setActivity(`discord.gg/codework`, { type:'WATCHING' })
+  
+  console.log("CodeWork Akıyor!!")
+});
 
 const log = message => {
   console.log(` ${message}`);
 };
 require('./util/eventLoader.js')(client);
-
-
-app.get("/", (request, response) => {
-  console.log(Date.now() + "7/24 AKTİF TUTMA İŞLEMİ BAŞARILI");
-  response.sendStatus(200);
-});
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000);
-
-var prefix = ayarlar.prefix;
 
 //READY.JS SON
 
@@ -128,6 +125,16 @@ client.login(process.env.TOKEN)
 client.on("guildMemberAdd", async member => {
   let hgmesajı = db.fetch(`kgirismesajı_${member.guild.id}`)
   client.channels.cache.get(hgmesajı).send(`Hoşgeldin ${member} Kayıt Olmak İçin !kayıt İsim Yaş`);
+});
+
+//KULLANICI KAYIT MESAJI SON\\
+
+
+//KULLANICI KAYIT MESAJI\\
+
+client.on("guildMemberAdd", async member => {
+  let yetkilihgmesajı = db.fetch(`yetkilikgirismesajı_${member.guild.id}`)
+  client.channels.cache.get(yetkilihgmesajı).send(`Hoşgeldin ${member} Kayıt Olmak İçin Kayıt Kanalına İsmini Yaz Ve Yetkilileri Bekle!`);
 });
 
 //KULLANICI KAYIT MESAJI SON\\
