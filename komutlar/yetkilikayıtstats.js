@@ -22,7 +22,7 @@ if(kişi) {
     const kızbilgi = await db.fetch(`kızistatistik${kişi.id}.${message.guild.id}`)
     const codework = new Discord.MessageEmbed()
     .setAuthor(kişi.username, kişi.avatarURL())
-    .setThumbnail(message.mentions.users.first().displayAvatarURL())
+    .setThumbnail(message.mentions.users.first().avatarURL())
     .setTimestamp()
     .setFooter(`${message.author.tag} Tarafından İstendi.`)
     .setDescription(`**Yetkilinin Bilgileri**

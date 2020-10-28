@@ -9,17 +9,17 @@ exports.run = async (client, message, args) => {
   if(!message.member.hasPermission(db.fetch(`yetkilirolk_${message.guild.id}`))) {
     return message.channel.send("Bu Komutu Kullanabilmek İçin Gerekli Yetkiye Sahip Değilsin!");
   } else {
-    let member = message.mentions.users.first() || client.users.get(args.join(' '))
+    let member = message.mentions.users.first() || client.users.cache.get(args.join(' '))
       if(!member) return message.channel.send("Bir kullanıcı girin.")
     const user = message.guild.member(member)
     const nick = args[1];
     const yas = args[2];
       if(!nick) return message.channel.send("Bir isim girin.")
       if(!yas) return message.channel.send("Bir yaş girin.")
-    setTimeout(function(){user.addRole(db.fetch(`erkekrolk_${message.guild.id}`))},3000)
-    setTimeout(function(){user.removeRole(db.fetch(`yetkilikayıtalınacak_${message.guild.id}`))},4000)
+    setTimeout(function(){user.roles.add(db.fetch(`erkekrolk_${message.guild.id}`))},3000)
+    setTimeout(function(){user.roles.remove(db.fetch(`yetkilikayıtalınacak_${message.guild.id}`))},4000)
     user.setNickname(`[${nick}] [${yas}]`)
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setAuthor("Erkek Üye Kaydı Yapıldı!")
     .addField(`Kaydı yapılan\n`, `${user.user.tag}`)
     .addField(`Kaydı yapan\n`, `${message.author.tag}`)
@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
     .setColor("BLUE")
     message.channel.send(`${message.author} Kayıt İşlemi Başarılı!`)
     db.add(`erkekistatistik${message.author.id}.${message.guild.id}`, 1)
-    message.guild.channels.get(db.fetch(`yetkilikayıtlogk_${message.guild.id}`)).send(embed)
+    message.guild.channels.cache.get(db.fetch(`yetkilikayıtlogk_${message.guild.id}`)).send(embed)
   }
 }
 exports.conf = {
