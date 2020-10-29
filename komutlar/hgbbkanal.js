@@ -8,7 +8,7 @@ if (!kanal) return message.channel.send('Lütfen hgbb Kanalını Etiketlermisin?
   db.set(`hgbbkanal_${message.guild.id}`, kanal.id)
 
  
-  message.channel.send(`Kayıt Kanalı Başarıyla Ayarlandı; **${kanal}**`)
+  message.channel.send(`hgbb Kanalı Başarıyla Ayarlandı; **${kanal}**`)
  };
 
 exports.conf = {

@@ -141,13 +141,11 @@ client.on("guildMemberAdd", async member => {
 //KULLANICI KAYIT MESAJI SON\\
 
   client.on("guildMemberAdd", member => { 
-  const emoji = client.emojis.get('754989058513698937');
-  let kanal = "755709294489501728";
-  let user = client.users.get(member.id);
+  let kanal = db.fetch(`hgbbkanal_${member.guild.id}`)
+  let user = client.users.cache.get(member.id);
   require("moment-duration-format");
   const kurulus = new Date().getTime() - user.createdAt.getTime();  
   const embed = new Discord.MessageEmbed()
- 
   var kontrol;
 if (kurulus < 1296000000) kontrol = ' **__Bu Hesap Güvenilir Değil__** '
 if (kurulus > 1296000000) kontrol = ' **__Bu Hesap Güvenilir Gözüküyor__** '
