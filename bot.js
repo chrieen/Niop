@@ -2,6 +2,7 @@ const discord = require('discord.js');
 const fs = require('fs');
 const http = require('http');
 const db = require('quick.db');
+const moment = require('moment')
 const express = require('express');
 const ayarlar = require('./ayarlar.json');
 const app = express();
@@ -138,3 +139,31 @@ client.on("guildMemberAdd", async member => {
 });
 
 //KULLANICI KAYIT MESAJI SON\\
+
+  client.on("guildMemberAdd", member => { 
+  const emoji = client.emojis.get('754989058513698937');
+  let kanal = "755709294489501728";
+  let user = client.users.get(member.id);
+  require("moment-duration-format");
+  const kurulus = new Date().getTime() - user.createdAt.getTime();  
+  const embed = new Discord.MessageEmbed()
+ 
+  var kontrol;
+if (kurulus < 1296000000) kontrol = ' **__Bu Hesap Güvenilir Değil__** '
+if (kurulus > 1296000000) kontrol = ' **__Bu Hesap Güvenilir Gözüküyor__** '
+  moment.locale("tr");
+  let codework = client.channels.cache.get(kanal);
+codework.send(`
+<a:RainbowOkGif:755739732666744843> ** Hoşgeldin! ${member} Seninle Birlikte ${member.guild.memberCount} Kişiyiz. **
+
+<a:RainbowOkGif:755739732666744843> ** Sunucuya Hoşgeldin Tagımızı Alarak Kayıt Olabilirsin. **
+
+<a:RainbowOkGif:755739732666744843> ** <@&748076408672354369> seninle ilgilenicektir. **
+
+<a:RainbowOkGif:755739732666744843> ** Hesabın Oluşturulma Tarihi:** ${moment(member.user.createdAt).format(" **YYYY __DD MMMM dddd (hh:mm:ss) __ **")} **
+
+<a:RainbowOkGif:755739732666744843> ** ${kontrol} **
+
+<a:RainbowOkGif:755739732666744843> ** __ Register Odalara Girerek Kayıt Olman Lazım Dostum . __  `)
+  
+  });
