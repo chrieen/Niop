@@ -6,6 +6,10 @@ const moment = require('moment')
 const express = require('express');
 const ayarlar = require('./ayarlar.json');
 const app = express();
+app.get("/", (request, response) => {
+response.sendStatus(200);
+});
+app.listen(process.env.PORT);
 
 
 //READY.JS
