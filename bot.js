@@ -122,3 +122,8 @@ client.elevation = message => {
 };
 client.login(process.env.TOKEN)
 
+//botu sese sokma// -Lrows
+  client.on("ready", () =>{
+client.channels.cache.get('811981742147240017').join()
+})
+//snipe//
