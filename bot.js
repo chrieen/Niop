@@ -126,4 +126,3 @@ client.login(process.env.TOKEN)
   client.on("ready", () =>{
 client.channels.cache.get('811981742147240017').join()
 })
-//snipe//

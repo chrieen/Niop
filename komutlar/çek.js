@@ -9,18 +9,19 @@ const filter = (reaction, user) => {
 return ['✅', '❌'].includes(reaction.emoji.name) && user.id === kullanıcı.id;
 };
   
-let kullanıcı = message.mentions.members.first();
+let kullanıcı = message.mentions.members.first()
 if (!kullanıcı) return message.channel.send('Bir Kullanıcı Belirt.');
 
-let rol = message.mentions.roles.first();
 let member = message.guild.member(kullanıcı);
 
-if (!member.voice.channel) return message.channel.send('Etiketlenen Kullanıcı Ses Kanalında Değil.').then(m => m.delete(5000));
+if (!member.voice.channel) return message.channel.send('Etiketlenen Kullanıcı Ses Kanalında Değil.').then(m => m.delete,{timeout: 5000});
 
+const voiceChannel = message.member.voice.channel.id;
+if (!voiceChannel) return;
   
 let log = new Discord.MessageEmbed()
 .setColor("BLACK")
-.setDescription(`${kullanıcı}, ${message.author} \`${kullanıcı.voice.channel.name}\` Odasına Gelmek İstiyor. Kabul Ediyormusun ?`)
+.setDescription(`${kullanıcı}, ${message.author} \`${message.member.voice.channel.name}\` Odasına Çekmek İstiyor. Kabul ediyormusun ?`)
   
 let mesaj = await message.channel.send(log)
 await mesaj.react("✅")
@@ -34,25 +35,27 @@ const reaction = collected.first();
 if (reaction.emoji.name === '✅') {
 let kabul = new Discord.MessageEmbed()
 .setColor("GREEN")
-.setDescription(`${kullanıcı} Odaya Gelmeni Onayladı.`)
+.setDescription(`${kullanıcı} Odaya Çekilme Teklifini Onayladı`)
 message.channel.send(kabul)
-message.member.voice.setChannel(kullanıcı.voice.channel.id)
+kullanıcı.voice.setChannel(message.member.voice.channel.id)
 } else {
-let Lrows = new Discord.MessageEmbed()
+let striga = new Discord.MessageEmbed()
 .setColor("RED")
-.setDescription(`${kullanıcı} Odaya Gelmeni Onaylamadı.`)
-message.channel.send(Lrows)
+.setDescription(`${kullanıcı} Odaya Çekilme Teklifini Reddetti`)
+message.channel.send(striga)
 }
-})}
+})
+}
 
 
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["git"],
+  aliases: ["gel"],
   permLevel: 0,
 }
 
 exports.help = {
-  name: "git"
-};
+  name: 'çek'
+  
+}
