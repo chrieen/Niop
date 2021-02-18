@@ -1,7 +1,7 @@
 {
   "name": "hello-express",
   "version": "0.0.1",
-  "description": "CodeWork v12 Boş Altyapı",
+  "description": "Lrows V12 Altyapı",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
