@@ -198,3 +198,23 @@ Sebep: ${sebep}`);
     afkSil(message, afk, isim)
   }
 });
+//sağ-tık ban atanı banlar
+client.on("guildBanAdd", async (guild,user) => {
+const entry = await guild.fetchAuditLogs({type:"MEMBER_BAN_ADD"}).then(audit => audit.entries.first());
+let xd = entry.executor
+if (dokunma.includes(xd.id)) return;
+if (xd === ayarlar.sahip) return;
+await guild.member(xd.id).ban("Lrows | Ban Koruma")
+guild.roles.forEach(async function(welel) {
+if (botroles.includes(welel.id)) return;
+if (welel.hasPermission("ADMINISTRATOR") || welel.hasPermission("BAN_MEMBERS") || welel.hasPermission("MANAGE_GUILD") || welel.hasPermission("KICK_MEMBERS") || welel.hasPermission("MANAGE_ROLES") || welel.hasPermission("MANAGE_CHANNELS")) {
+welel.setPermissions(0)
+}
+})
+let hokoko = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle("Ban Koruması")
+.setDescription(`Daniel Atlas | **<@${xd.id}>** Adlı Kullanıcı Birisini Banladı || Bende Onu Banladım`)
+.setTimestamp();
+guild.owner.send(hokoko).then(client.mebers.get(ayarlar.sahip).send(new Discord.RichEmbed().setTitle("Ban Koruması").setDescription(`Daniel Atlas Guard || **<@${xd.id}>** Adlı Kullanıcı Birisini Banladı || Bende Onu Banladım`).setColor("RED")))
+})
