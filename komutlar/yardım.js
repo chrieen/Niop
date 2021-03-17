@@ -14,22 +14,22 @@ const mhelp = new Discord.MessageEmbed()
 
 ╔═════════════════════════════════════╗
 ║**MODERASYON KOMUTLARI**
-║**!ban** : Sunucudan bir üyeyi yasaklar.
-║**!unban** : İstediğiniz kişinin banını kaldırır.
-║**!kick** : Sunucudan bir üye kickler.
-║**!jail** : Kişiyi jaile yollar.
+║**!ban**   Sunucudan bir üyeyi yasaklar.
+║**!unban** İstediğiniz kişinin banını kaldırır.
+║**!kick**  Sunucudan bir üye kickler.
+║**!jail**  Kişiyi jaile yollar.
 ║══════════════════════════════════════
 ║**SOHBET KOMUTLARI**
-║**!sil** : Belirli bir kanaldaki mesajları siler.
-║**!yavaş-mod** : Sohbete yazma sınır (süre) ekler.
+║**!sil**          Belirli bir kanaldaki mesajları siler.
 ║**!sohbet-kapat** Sohbeti Kapatır ve yazı yazılamaz.
-║**!sohbet-aç** Sohbeti Açar ve yazı yazılabilir.
-║**!nuke** Kanalı kapatır,mesajları siler ve tekrardan açar.
+║**!sohbet-aç**    Sohbeti Açar ve yazı yazılabilir.
+║**!nuke**         Kanalı kapatır,mesajları siler ve tekrardan açar.
+║**!mute**         Kişiye chat/voice mute atılır.
 ║══════════════════════════════════════
 ║**SESLİ KOMUTLARI**
-║**!git** Kişi onay verirse odasına gidersiniz.
-║**!çek** Kişi onay verirse odanıza gelir.
-║**!mute** Kişi onay verirse odanıza gelir.
+║**!git**          Kişi onay verirse odasına gidersiniz.
+║**!çek**          Kişi onay verirse odanıza gelir.
+║**!mute**         Kişiye chat/voice mute atılır.
 ╚═════════════════════════════════════╝
 `) 
        .addField(`» Lrows V12 MODERASYON`, `**[Destek Sunucusu](https://discord.gg/Qfj3FRM)**`)
