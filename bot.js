@@ -142,7 +142,7 @@ client.on("message" , async msg => {
    const kisi3 = db.fetch(`afkid_${afk.id}_${msg.guild.id}`)
    if(msg.content.includes(kisi3)){
 
-       msg.reply(`**Etiketlediğiniz Kişi AFK!** \nSebep : ${sebep}`)
+       msg.reply(`**Etiketlediğiniz Kişi AFK!** \n**Sebep : ${sebep}**`)
    }
  }
   if(msg.author.id === kisi){

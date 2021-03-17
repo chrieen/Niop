@@ -17,6 +17,6 @@ exports.conf = {
 
 exports.help = {
     name: 'nuke',
-  description: 'Belirtilen kanalı silip aynısıın tekrar oluşturur.',
+  description: 'yeni kanal olusturur',
   usage: 'nuke'
 };
