@@ -31,7 +31,7 @@ exports.run = async(client, message, args) => {
     message.channel.send(new Discord.MessageEmbed().setColor("BLACK").setAuthor(`Lrows`, message.author.avatarURL()).setThumbnail("https://media1.giphy.com/media/l3vQYLjGxvQewNUc0/giphy.gif").setDescription(`**⚠️ • ${message.author} Kullanıcıyı Kız Olarak Kayıt Etmek İstediğinize Emin Misiniz ? Lütfen __evet (e)__ veya __hayır (h)__ İle Cevap Verin.\n\n\`30\` Saniye İçerisinde İptal Edilcektir**`))
   let wenzy = false; 
   while (!wenzy) {
-    const response = await message.channel.awaitMessages(neblm => neblm.author.id === message.author.id, { max: 1, time: 30000 }); 
+    const response = await message.channel.awaitMessages(lrowsxrd => lrowsxrd.author.id === message.author.id, { max: 1, time: 30000 }); 
     const Lrows = response.first().content
     if (Lrows == 'hayır' || Lrows == 'h') return message.channel.send(new Discord.MessageEmbed().setAuthor(`Lrows `, message.author.avatarURL()).setColor("BLACK").setThumbnail("https://media1.giphy.com/media/l3vQYLjGxvQewNUc0/giphy.gif").setDescription("**İşlem İptal Edildi**"))
     if (Lrows !== 'evet' && Lrows !== 'e') { 
