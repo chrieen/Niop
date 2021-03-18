@@ -20,6 +20,7 @@ const mhelp = new Discord.MessageEmbed()
 ║**!jail**  Kişiyi jaile yollar.
 ║══════════════════════════════════════
 ║**SOHBET KOMUTLARI**
+║**afk**           AFK kalırsınız etiketlendiğinizde sebebi yazar.
 ║**!sil**          Belirli bir kanaldaki mesajları siler.
 ║**!sohbet-kapat** Sohbeti Kapatır ve yazı yazılamaz.
 ║**!sohbet-aç**    Sohbeti Açar ve yazı yazılabilir.
